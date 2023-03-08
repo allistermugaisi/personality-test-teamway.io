@@ -21,6 +21,22 @@ function App() {
 	}, []);
 	console.log(questionBank);
 
+	const computeAnswer = (answer, correctAnswer) => {
+		if (answer === correctAnswer) {
+			setScore((prevScore) => prevScore + 1);
+		}
+
+		setResponses((response) => (response < 5 ? response + 1 : 5));
+	};
+
+	const playAgain = () => {
+		getQuestions();
+
+		// Reset responses & score
+		setScore(0);
+		setResponses(0);
+	};
+
 	return (
 		<div className="container">
 			<div className="title">QuizBee</div>
