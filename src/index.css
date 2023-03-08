@@ -61,6 +61,19 @@
 	cursor: pointer;
 }
 
+.start-screen {
+	position: relative;
+	height: 650px;
+}
+
+.start-screen-text {
+	position: absolute;
+	width: 960px;
+	top: 250px;
+	font-size: 2em;
+	text-align: center;
+}
+
 .score-board {
 	position: relative;
 	height: 700px;

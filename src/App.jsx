@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { QuestionBox, Result } from './components';
+import { StartScreen, QuestionBox, Result } from './components';
 
 // Mocked backend service
 import quizService from './quizService';
@@ -8,6 +8,7 @@ const App = () => {
 	const [score, setScore] = useState(0);
 	const [responses, setResponses] = useState(0);
 	const [questionBank, setQuestionBank] = useState([]);
+	const [testStarted, setTestStarted] = useState(false);
 
 	const getQuestions = () => {
 		quizService().then((question) => {
@@ -34,12 +35,20 @@ const App = () => {
 		// Reset responses & score
 		setScore(0);
 		setResponses(0);
+		// Display start screen
+		setTestStarted(false);
+	};
+
+	const startTest = () => {
+		// Hide start screen
+		setTestStarted(!testStarted);
 	};
 
 	return (
 		<div className="container">
 			<div className="title">Personality Test Application</div>
-			{questionBank.length > 0 &&
+			{testStarted ? (
+				questionBank.length > 0 &&
 				responses < 5 &&
 				questionBank.map(({ question, answers, correct, questionId }) => (
 					<QuestionBox
@@ -48,7 +57,10 @@ const App = () => {
 						key={questionId}
 						selected={(answer) => computeAnswer(answer, correct)}
 					/>
-				))}
+				))
+			) : (
+				<StartScreen startTest={startTest} />
+			)}
 			{responses === 5 ? <Result score={score} playAgain={playAgain} /> : null}
 		</div>
 	);
