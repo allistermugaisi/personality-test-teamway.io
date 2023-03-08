@@ -4,7 +4,7 @@ import { QuestionBox, Result } from './components';
 // Mocked backend service
 import quizService from './quizService';
 
-function App() {
+const App = () => {
 	const [score, setScore] = useState(0);
 	const [responses, setResponses] = useState(0);
 	const [questionBank, setQuestionBank] = useState([]);
@@ -19,7 +19,6 @@ function App() {
 		// Call questions on load
 		getQuestions();
 	}, []);
-	console.log(questionBank);
 
 	const computeAnswer = (answer, correctAnswer) => {
 		if (answer === correctAnswer) {
@@ -53,6 +52,6 @@ function App() {
 			{responses === 5 ? <Result score={score} playAgain={playAgain} /> : null}
 		</div>
 	);
-}
+};
 
 export default App;
