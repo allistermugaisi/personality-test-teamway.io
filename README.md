@@ -12,7 +12,7 @@ The following things will be assessed by the technical screener:
 
 The scores and your test project will be part of your profile / candidate presentation to the customers. It highly increases your chances of landing a role and decreases the likelihood of a customer asking for yet another test project.
 
-#### Your assignment
+### **Your assignment**
 
 Build a simple personality test application, that takes 3-5 different questions, maps them into a score and produces a personality trait of either Introvert or Extrovert.
 
