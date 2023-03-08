@@ -26,3 +26,5 @@ An example could be:
 - Finish screen, where you can see your personality trait.
 
 It is a plus if you write some unit-tests.
+
+Link to the live site of the project **_https://personality-test-teamway.netlify.app/_**
