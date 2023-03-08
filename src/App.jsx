@@ -17,7 +17,7 @@ const App = () => {
 	};
 
 	useEffect(() => {
-		// Call questions on load
+		// Call questions on initial mount
 		getQuestions();
 	}, []);
 
