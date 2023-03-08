@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { QuestionBox, Result } from './components';
 
 // Mocked backend service
@@ -8,6 +8,18 @@ function App() {
 	const [score, setScore] = useState(0);
 	const [responses, setResponses] = useState(0);
 	const [questionBank, setQuestionBank] = useState([]);
+
+	const getQuestions = () => {
+		quizService().then((question) => {
+			setQuestionBank(question);
+		});
+	};
+
+	useEffect(() => {
+		// Call questions on load
+		getQuestions();
+	}, []);
+	console.log(questionBank);
 
 	return (
 		<div className="container">
