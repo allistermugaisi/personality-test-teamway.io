@@ -39,22 +39,18 @@ function App() {
 
 	return (
 		<div className="container">
-			<div className="title">QuizBee</div>
-			{/* {this.state.questionBank.length > 0 &&
-          this.state.responses < 5 &&
-          this.state.questionBank.map(
-            ({ question, answers, correct, questionId }) => (
-              <QuestionBox
-                question={question}
-                options={answers}
-                key={questionId}
-                selected={(answer) => this.computeAnswer(answer, correct)}
-              />
-            )
-          )}
-        {this.state.responses === 5 ? (
-          <Result score={this.state.score} playAgain={this.playAgain} />
-        ) : null} */}
+			<div className="title">Personality Test Application</div>
+			{questionBank.length > 0 &&
+				responses < 5 &&
+				questionBank.map(({ question, answers, correct, questionId }) => (
+					<QuestionBox
+						question={question}
+						options={answers}
+						key={questionId}
+						selected={(answer) => computeAnswer(answer, correct)}
+					/>
+				))}
+			{responses === 5 ? <Result score={score} playAgain={playAgain} /> : null}
 		</div>
 	);
 }
